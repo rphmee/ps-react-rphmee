@@ -1,2 +1,6 @@
 Gives full control over create-react-app by removing the
 abstraction layer provided in by the boilerplate.
+
+Package.json will get a lot longer
+Scripts will change
+Jest, Babel, ESLint configuration is exposed
