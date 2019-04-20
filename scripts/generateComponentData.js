@@ -1,8 +1,8 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as chalk from "chalk"; //colors command line output
-import { parse } from "react-docgen"; //looks at components and pulls out metadata
-import * as chokidar from "chokidar"; //watch files and then run function in cross platform way
+const path = require("path");
+const chalk = require("chalk"); //colors command line output
+const chokidar = require("chokidar"); //watch files and then run function in cross platform way
+const fs = require("fs");
+const parse = require("react-docgen").parse; //looks at components and pulls out metadata
 
 const paths = {
   examples: path.join(__dirname, "../src", "docs", "examples"),

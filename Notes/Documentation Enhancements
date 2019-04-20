@@ -1,0 +1,10 @@
+-Search Above Component Nav List
+-High "internals"
+    -place internals in an internals folder and hide in generateMetadata
+-Group Components
+-Live prop toggling
+    -bluekit, attelia
+-Markdown Support
+-Live Code Editing
+    -Good for learning through rapid feedback
+    -React Toolbox (online sandbox)
