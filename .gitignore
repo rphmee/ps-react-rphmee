@@ -83,3 +83,15 @@ Notes# See https://help.github.com/articles/ignoring-files/ for more about ignor
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# built component library
+/lib
+
+# built docs
+/docs
+
+# Generated component data
+/config/componentData.js
+
+# VSCode launch config
+launch.json
