@@ -1,0 +1,52 @@
+Tip 1: Avoid weak wrapper elements
+    -e.g. <p></p>
+        -its invalid to put a div inside <p></p>
+
+Tip 2: Specify PropTypes
+    -consistently define proptypes for all components
+    -clarify API
+    -Warn consumers
+    -Enforce through linting
+    -Specify Object Shape via props
+    -Enhanced Autocompletion by parsing proptypes
+    -Help with generating documentation
+
+Tip 3: Don't Hard Code HTML IDs 
+    -Must be unique on the page, becomes problematic w/ reusable components
+    -Rules out multiple instances 
+    -Accept HTML ID via a prop
+
+Tip 4: Set Logical Defaults
+    -Save users typing
+    -Help assure useful behavior
+    -Convey Common use case
+    -e.g. MyCounter.defaultProps = { initialCount: 0 };
+    -Stateless Components
+        -e.g. MyCounter = ({initialCount: 0}) => {};
+
+Tip 5: Accessibility Concerns
+    -Keyboard Inputs, Tab Indexes, Semantic HTML
+    -Avoid temptation to reinvent the wheel
+    -ARIA: Accessible Rich Internet Applications
+
+Tip 6: Consider Configuration Objects 
+    -Accept an Object instead of a list of props 
+    -Consistent component API
+    -Less typing
+    -Less error prone
+    -Avoid if your component has <= 4 props (for readability)
+
+Tip 7: Consider Server Rendering
+    -Search Engine Optimization (SEO)
+    -Static Site Generation
+        -Gatsby, Phenomic
+    -Improved Performance
+    -Public will expect it
+    -Don't assume your component is in a browser
+        -avoid document or window calls
+        -avoid using setTimeout
+
+Tip 8: Single Responsibility Principle
+    -Each component should have a clear, single Responsibility
+    -More props -> More Complexity
+    
