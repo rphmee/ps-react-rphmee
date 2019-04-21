@@ -20,4 +20,32 @@ Why Atomic Design?
     -Consider the project at multiple layers of abstraction
     -Encourages reuse 
     -Convey more clear intent 
+
+Atoms
+    -Smallest building Blocks
+    -foundation for component library
+    -lay out design base
     
+Wrapping HTML Primitives
+    -e.g.
+        <input type="text"> -> <TextInput />
+        <input type="checkbox"> -> <Checkbox />
+        <select> -> <PickOneFromList /> or <Dropdown />
+
+Tip 1: Honor the Native DOM API
+    -Wrapper should honor the same API
+    -For array props, use plurals instead of suffixes
+        -userList -> users
+
+Tip 2: Pass Props via Spread
+    -e.g. {...props}
+    -introduced in ES6
+    -avoid spreading unwanted props
+
+Tip 3: Use destructuring with Spread to control which props are passed
+    -const Hello = ({name, ...rest})
+        -rest doesn't contain name
+
+Tip 4: Create Formatting Components
+    -e.g. <Cash>6</Cash> -> $6.00
+    -similar to Utility functions
