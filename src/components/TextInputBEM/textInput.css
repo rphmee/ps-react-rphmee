@@ -1,0 +1,16 @@
+/* Use SASS or LESS or PostCSS w/ CSSNext in a real App */
+
+/* styles the 'block' */
+.textinput {
+  margin-bottom: 16px;
+}
+
+/* styles the 'element' */
+.textinput__error {
+  color: red;
+}
+
+/* styles the 'modifier' */
+.textinput__input--state-error {
+  border: solid 1px red;
+}

@@ -51,3 +51,8 @@
     -Styling
     -Testing
     -Deployment
+
+-Specialization Pattern
+    -Use previously made components and put them within wrappers to specialize
+    their function for specific use cases.
+        -e.g. wrap TextInput in PasswordInput
