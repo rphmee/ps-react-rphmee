@@ -45,16 +45,15 @@ class IxButton extends React.Component {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "auto",
-            marginBottom: "auto"
+            height: '100%',
+            width: '100%'
           }}
         >
           <i
             className={icon}
             style={{
               color: this.state.hover ? "white" : color,
-              margin: "auto 0",
-              marginLeft: !this.state.hover && -1,
+              margin: "auto auto",
               float: "none"
             }}
           />
@@ -86,7 +85,7 @@ IxButton.propTypes = {
 
 IxButton.defaultProps = {
   /** Blue is my Favorite Color! */
-  color: "#93bcff",
+  color: "#0d47a1",
 
   /** 25px Circle */
   size: 45,
