@@ -22,11 +22,20 @@ class IxButton extends React.Component {
   }
 
   render() {
-    const { color, size, shadow, handleClick, shape, icon } = this.props;
+    const {
+      color,
+      backgroundColor,
+      iconHoverColor,
+      size,
+      shadow,
+      handleClick,
+      shape,
+      icon
+    } = this.props;
     return (
       <div
         style={{
-          backgroundColor: this.state.hover ? color : "transparent",
+          backgroundColor: this.state.hover ? color : backgroundColor,
           width: size,
           height: size,
           borderRadius: shape === "circle" ? "50%" : "10%",
@@ -45,14 +54,14 @@ class IxButton extends React.Component {
           style={{
             display: "flex",
             justifyContent: "center",
-            height: '100%',
-            width: '100%'
+            height: "100%",
+            width: "100%"
           }}
         >
           <i
             className={icon}
             style={{
-              color: this.state.hover ? "white" : color,
+              color: this.state.hover ? iconHoverColor : color,
               margin: "auto auto",
               float: "none"
             }}
@@ -66,6 +75,12 @@ class IxButton extends React.Component {
 IxButton.propTypes = {
   /** Button Color */
   color: PropTypes.string,
+
+  /** Button Background Color */
+  backgroundColor: PropTypes.string,
+
+  /** Icon Hover Color */
+  iconHoverColor: PropTypes.string,
 
   /** Width and Height */
   size: PropTypes.number,
@@ -86,6 +101,12 @@ IxButton.propTypes = {
 IxButton.defaultProps = {
   /** Blue is my Favorite Color! */
   color: "#0d47a1",
+
+  /** Transparent by default */
+  backgroundColor: "transparent",
+
+  /** Icon White on Hover by Default */
+  iconHoverColor: "white",
 
   /** 25px Circle */
   size: 45,

@@ -3,27 +3,31 @@ import PropTypes from "prop-types";
 import IxButton from "../IxButton";
 
 class IxButtonMulti extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = { open: false }
+    this.state = { open: false };
   }
 
   onClick() {
-    this.setState({open: !this.state.open});
+    this.setState({ open: !this.state.open });
   }
 
   // The button defined here will handle the opening/closing of the dropdown.
   // The buttons within the dropdown will be defined in the example.
   render() {
-    const { children, shape } = this.props;
+    const { children, shape, backgroundColor } = this.props;
     return (
-      <div style={{zIndex: 100, position: 'relative'}}>
-        <IxButton shape={shape} handleClick={this.onClick.bind(this)}></IxButton>
-        <div style={{position: 'absolute'}}>
+      <div style={{ zIndex: this.state.open ? 100 : 10, position: "relative" }}>
+        <IxButton
+          shape={shape}
+          backgroundColor={backgroundColor}
+          handleClick={this.onClick.bind(this)}
+        />
+        <div style={{ position: "absolute" }}>
           {this.state.open && children}
         </div>
       </div>
-   );
+    );
   }
 }
 
@@ -36,7 +40,7 @@ IxButtonMulti.propTypes = {
 };
 
 IxButtonMulti.defaultProps = {
-  shape: 'square'
-}
+  shape: "square"
+};
 
 export default IxButtonMulti;
