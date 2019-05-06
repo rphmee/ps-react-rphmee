@@ -12,6 +12,7 @@ export default class ExampleError extends React.Component {
         label="Password"
         name="passwordInput"
         onChange={() => {}}
+        onSubmit={() => {}}
         required
         error="Incorrect Password"
       />

@@ -10,6 +10,7 @@ export default class ExampleOptional extends React.Component {
         label="First Name"
         name="firstname"
         onChange={() => {}}
+        onSubmit={() => {}}
       />
     );
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import TextInput from "ps-react/TextInput";
 import PropTypes from "prop-types";
 
 /** Text Input with integrated label to enforce consistency in layout, error display, label placement */
@@ -25,31 +24,19 @@ class ClickToEnterTextField extends React.Component {
     this.setState({ isEntered: true });
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    this.setState({ isEntered: false });
-    this.setState({ value: event.target.value });
-    event.preventDefault();
-    alert("Event Target Value: " + event.target.value);
-  }
-
   render() {
-    const { value, height, name } = this.props;
+    const { height, name, onSubmit, onChange, leftMargin, topMargin, rightMargin, bottomMargin, display, color } = this.props;
     return (
-      <div style={{ display: "inline-block" }}>
+      <div style={{ height: 'auto', display: display, marginLeft: leftMargin, marginRight: rightMargin, marginTop: topMargin, marginBottom: bottomMargin }}>
         {this.state.isEntered ? (
-          <form
-            onSubmit={this.handleSubmit.bind(this)}
-            onChange={this.handleChange.bind(this)}
-          >
+          <form onSubmit={onSubmit.bind(this)}>
             <input
               type="text"
               name={name}
               placeholder={name}
               value={this.state.value}
+              style={{display: display}}
+              onChange={onChange.bind(this)}
             />
           </form>
         ) : (
@@ -57,7 +44,7 @@ class ClickToEnterTextField extends React.Component {
             onMouseOver={() => this.mouseOver()}
             onMouseOut={() => this.mouseOut()}
             onClick={() => this.onClickField()}
-            style={{ border: this.state.isHover ? "2px solid white" : "" }}
+            style={{ display: display, border: this.state.isHover ? "2px solid white" : "", color: color }}
           >
             {this.state.value}
           </h1>
@@ -71,9 +58,6 @@ ClickToEnterTextField.propTypes = {
   /** Input Name. Recommend setting this to match object's property so a single change handler can be used */
   name: PropTypes.string.isRequired,
 
-  /** Input Label */
-  label: PropTypes.string.isRequired,
-
   /** Input Type */
   type: PropTypes.oneOf(["text", "number", "password"]),
 
@@ -82,6 +66,9 @@ ClickToEnterTextField.propTypes = {
 
   /** Function to call onChange */
   onChange: PropTypes.func.isRequired,
+
+  /** Function to call onSubmit */
+  onSubmit: PropTypes.func.isRequired,
 
   /** Placeholder to display when empty */
   placeholder: PropTypes.string,
@@ -93,7 +80,25 @@ ClickToEnterTextField.propTypes = {
   error: PropTypes.string,
 
   /** Child component to display next to the input */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  /** Display Format */
+  display: PropTypes.string,
+
+  /** Left Margin */
+  leftMargin: PropTypes.number,
+
+  /** Top Margin */
+  topMargin: PropTypes.number,
+
+  /** Bottom Margin */
+  bottomMargin: PropTypes.number,
+
+  /** Right Margin */
+  rightMargin: PropTypes.number,
+
+  /** Text Color */
+  color: PropTypes.string
 };
 
 ClickToEnterTextField.defaultProps = {
