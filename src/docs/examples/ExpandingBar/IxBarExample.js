@@ -30,7 +30,6 @@ export default function ExampleBar() {
             marginTop: 0
           }}
         >
-          
             <ClickToEnterTextField
               display="inline-block"
               bottomMargin={0}
@@ -41,7 +40,6 @@ export default function ExampleBar() {
               onSubmit={onSubmit}
               value="BLACK STEEL MULTI TOOL"
             />
-          
             <div>
             <ClickToEnterTextField
               display="inline-block"
