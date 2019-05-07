@@ -1,37 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
 import AnimateHeight from "react-animate-height";
+import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 class ExpandingBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentHeight: props.height };
+    this.state = { expanded: false };
   }
 
-  toggleHeight = () => {
-    this.setState({
-      currentHeight:
-        this.state.currentHeight === this.props.height
-          ? "auto"
-          : this.props.height
-    });
+  toggleExpanded = () => {
+    this.setState({ expanded: !this.state.expanded });
   };
 
   render() {
-    const { currentHeight } = this.state;
-    const { children, height, backgroundColor } = this.props;
+    const { children, startHeight, endHeight, backgroundColor } = this.props;
     return (
       <div>
-        <button onClick={this.toggleHeight}>
-          {currentHeight === height ? "Open" : "Close"}
-        </button>
-        <AnimateHeight duration={250} height={currentHeight}>
+        <AnimateHeight
+          duration={250}
+          height={this.state.expanded ? endHeight : startHeight}
+        >
           <div
             style={{
               backgroundColor: backgroundColor,
-              width: "100%",
-              height: "auto"
+              height: this.state.expanded ? endHeight : startHeight
             }}
+            onClick={this.toggleExpanded}
           >
             {children}
           </div>
@@ -46,7 +41,10 @@ ExpandingBar.propTypes = {
   backgroundColor: PropTypes.string,
 
   /** Bar Height */
-  height: PropTypes.number
+  height: PropTypes.number,
+
+  /** Factor to Expand By */
+  multiplier: PropTypes.number
 };
 
 ExpandingBar.defaultProps = {
@@ -54,7 +52,10 @@ ExpandingBar.defaultProps = {
   backgroundColor: "#445160",
 
   /** Height */
-  height: 50
+  height: 50,
+
+  /** Expansion Factor */
+  multiplier: 1.5
 };
 
 export default ExpandingBar;

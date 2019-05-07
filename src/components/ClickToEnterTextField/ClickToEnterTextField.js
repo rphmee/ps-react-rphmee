@@ -25,9 +25,27 @@ class ClickToEnterTextField extends React.Component {
   }
 
   render() {
-    const { height, name, onSubmit, onChange, leftMargin, topMargin, rightMargin, bottomMargin, display, color } = this.props;
+    const {
+      height,
+      name,
+      onSubmit,
+      onChange,
+      leftMargin,
+      topMargin,
+      rightMargin,
+      bottomMargin,
+      display,
+      color,
+      ...props
+    } = this.props;
     return (
-      <div style={{ height: 'auto', display: display, marginLeft: leftMargin, marginRight: rightMargin, marginTop: topMargin, marginBottom: bottomMargin }}>
+      <div
+        style={{
+          display: display,
+          margin: "0px 0px 0px 0px",
+          padding: "0px"
+        }}
+      >
         {this.state.isEntered ? (
           <form onSubmit={onSubmit.bind(this)}>
             <input
@@ -35,19 +53,31 @@ class ClickToEnterTextField extends React.Component {
               name={name}
               placeholder={name}
               value={this.state.value}
-              style={{display: display}}
+              style={{
+                display: display,
+                marginBlockStart: "1px",
+                marginBlockEnd: "1px"
+              }}
               onChange={onChange.bind(this)}
             />
           </form>
         ) : (
-          <h1
+          <p
             onMouseOver={() => this.mouseOver()}
             onMouseOut={() => this.mouseOut()}
             onClick={() => this.onClickField()}
-            style={{ display: display, border: this.state.isHover ? "2px solid white" : "", color: color }}
+            style={{
+              display: display,
+              border: this.state.isHover ? "2px solid white" : "",
+              marginBlock: this.state.isHover ? "1px" : "3px",
+              margin: this.state.isHover
+                ? "2px 2px 2px 2px"
+                : "4px 4px 4px 4px",
+              color: color
+            }}
           >
             {this.state.value}
-          </h1>
+          </p>
         )}
       </div>
     );
@@ -86,23 +116,28 @@ ClickToEnterTextField.propTypes = {
   display: PropTypes.string,
 
   /** Left Margin */
-  leftMargin: PropTypes.number,
+  leftMargin: PropTypes.string,
 
   /** Top Margin */
-  topMargin: PropTypes.number,
+  topMargin: PropTypes.string,
 
   /** Bottom Margin */
-  bottomMargin: PropTypes.number,
+  bottomMargin: PropTypes.string,
 
   /** Right Margin */
-  rightMargin: PropTypes.number,
+  rightMargin: PropTypes.string,
 
   /** Text Color */
   color: PropTypes.string
 };
 
 ClickToEnterTextField.defaultProps = {
-  value: "PART NAME"
+  value: "PART NAME",
+  leftMargin: "5px",
+  rightMargin: "10px",
+  topMargin: "5px",
+  bottomMargin: "5px",
+  display: "inline-block"
 };
 
 export default ClickToEnterTextField;
