@@ -1,0 +1,71 @@
+Decisions to make
+1. Choose a Framework
+    -Mocha, Jasmine, Tape, QUnit, Ava, Jest
+    -Choose Jest for this course
+    -Jest
+        -created by Facebook for React
+        -Fast: run tests related to changed code only
+        -Interactive Watch Mode
+        -Snapshot Testing
+        -Helpful error messages
+        -Debug via console or breakpoints
+        -Mocks and Spies
+        -Coverage reporting
+        -Simple configuration
+        -Transpiles w/ babel before running tests
+        -built into create-react-app
+2. Types of Automated Tests to write
+    -Unit Testing
+        -Goal: Validate logic with validation, calculations, transformations
+        -Use for business logic
+        -Individual Modules/Functions
+    -Interaction Testing
+        -Goal: Validate Interactivity 
+        -Assert a function is called on click
+        -Interactive Components, Validate events, etc.
+        -Non-Deterministic Markup
+    -Structural Testing
+        -Validate HTML Output
+        -Snapshot testing saves copy of output given input
+        -tests break when output changes
+        -Only test needed for stateless Components
+        -Good for non-interactive components, deterministic Markup
+        -Validate display/hiding, test display after interactions
+        -Snapshot testing easy to set up, notified when rendering changes
+            -update with a single key
+            -fast, no browser, in-memory
+    -Style testing
+        -Automated visual regression testing
+        -Compare literal screenshots
+        -BackstopJS, PhantomCSS, Casper
+3. Choose Assertion Library
+    -Declare what you expect
+        -e.g. expect(2+2).toEqual(4)
+    -Built in to Jest
+4. Choose Helper Libraries
+    -Enzyme: for interaction testing
+        -simulate clicks, DOM queries
+        -friendly API
+        -recommended by React
+5. Where to Run Tests
+    -Run in the browser w/ Karma, Testem
+    -Headless Browser
+        -PhantomJS, Headless Chrome
+    -In Memory DOM
+        -JSDOM
+            -included in Jest
+            -Lightweight alternative to PhantomJS
+            -Fast, quick to set up
+6. Where do Test Files belong?
+    -centralized in one spot
+        -less noise in src folder
+    -alongside
+        -easy imports
+        -clear visibility
+        -convenient to open
+        -no recreating folder structure
+7. When to run tests 
+    -Run automatically when you hit save
+    -Rapid feedback
+    -Facilitates Test Driven Development
+    -Automatic = Low Friction
