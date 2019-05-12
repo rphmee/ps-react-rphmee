@@ -42,8 +42,7 @@ class IxButton extends React.Component {
           border: `3px solid ${color}`,
           boxShadow:
             shadow && this.state.hover && "2px 2px 4px 0px rgba(0, 0, 0, 0.47)",
-          marginLeft: 10,
-          marginTop: 5,
+          margin: '5px 5px 5px 5px',
           cursor: this.state.hover && "pointer"
         }}
         onMouseOut={() => this.mouseOut()}
