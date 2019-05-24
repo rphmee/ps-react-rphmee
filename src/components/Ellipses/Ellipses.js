@@ -1,35 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class Ellipses extends React.Component {
-    render() {
+  render() {
+    const { color, size, direction } = this.props;
 
-        const { color, size, direction } = this.props;
-
-        return (
-            <div style={{ display: 'flex', flexDirection: direction, float: 'left' }}>
-                <div style={{margin: '2px 2px 2px 2px', height: size, width: size, backgroundColor: color, borderRadius: '50%' }} />
-                <div style={{margin: '2px 2px 2px 2px', height: size, width: size, backgroundColor: color, borderRadius: '50%' }} />
-                <div style={{margin: '2px 2px 2px 2px', height: size, width: size, backgroundColor: color, borderRadius: '50%' }} />
-            </div>
-        )
+    const dotStyle = {
+      margin: "2px 2px 2px 2px",
+      height: size,
+      width: size,
+      backgroundColor: color,
+      borderRadius: "50%"
     };
+
+    return (
+      <div style={{ display: "flex", flexDirection: direction, float: "left" }}>
+        <div style={dotStyle} />
+        <div style={dotStyle} />
+        <div style={dotStyle} />
+      </div>
+    );
+  }
 }
 
 Ellipses.propTypes = {
-    color: PropTypes.string,
+  /* Color of the Dots */
+  color: PropTypes.string,
 
-    size: PropTypes.number,
+  /* Size of the Dots */
+  size: PropTypes.number,
 
-    direction: PropTypes.string
-}
+  /* Direction of the Dots, Row or Column */
+  direction: PropTypes.string
+};
 
 Ellipses.defaultProps = {
-    color: "#0d47a1",
+  /* Color of the Dots */
+  color: "#0d47a1",
 
-    size: 3,
+  /* Diameter of the Dots */
+  size: 3,
 
-    direction: 'row'
-}
+  /* Row or Column */
+  direction: "row"
+};
 
 export default Ellipses;

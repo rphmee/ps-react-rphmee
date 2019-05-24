@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "react-fontawesome";
+import Ellipses from "../Ellipses";
 
 const sayHello = () => {
   console.log("Hello World!");
@@ -30,41 +31,57 @@ class IxButton extends React.Component {
       shadow,
       handleClick,
       shape,
-      icon
+      icon,
+      dropdown
     } = this.props;
     return (
-      <div
-        style={{
-          backgroundColor: this.state.hover ? color : backgroundColor,
-          width: size,
-          height: size,
-          borderRadius: shape === "circle" ? "50%" : "10%",
-          border: `3px solid ${color}`,
-          boxShadow:
-            shadow && this.state.hover && "2px 2px 4px 0px rgba(0, 0, 0, 0.47)",
-          margin: '5px 5px 5px 5px',
-          cursor: this.state.hover && "pointer"
-        }}
-        onMouseOut={() => this.mouseOut()}
-        onMouseOver={() => this.mouseOver()}
-        onClick={handleClick}
-      >
+      <div id="button box">
         <div
           style={{
-            display: "flex",
-            justifyContent: "center",
-            height: "100%",
-            width: "100%"
+            backgroundColor: this.state.hover ? color : backgroundColor,
+            width: size,
+            height: size,
+            borderRadius: shape === "circle" ? "50%" : "10%",
+            border: `3px solid ${color}`,
+            display: "inline-block",
+            boxShadow:
+              shadow &&
+              this.state.hover &&
+              "2px 2px 4px 0px rgba(0, 0, 0, 0.47)",
+            margin: "5px 5px 5px 5px",
+            cursor: this.state.hover && "pointer"
+          }}
+          onMouseOut={() => this.mouseOut()}
+          onMouseOver={() => this.mouseOver()}
+          onClick={handleClick}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              height: "100%",
+              width: "100%"
+            }}
+          >
+            <i
+              className={icon}
+              style={{
+                color: this.state.hover ? iconHoverColor : color,
+                margin: "auto auto",
+                float: "none"
+              }}
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            display: "inline-block",
+            margin: `0px 0px ${shape === "circle" ? "-4px" : "5px"} -5px`
           }}
         >
-          <i
-            className={icon}
-            style={{
-              color: this.state.hover ? iconHoverColor : color,
-              margin: "auto auto",
-              float: "none"
-            }}
-          />
+          {dropdown && (
+            <Ellipses style={{ position: "absolute" }} direction="column" />
+          )}
         </div>
       </div>
     );

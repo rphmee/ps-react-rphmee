@@ -23,9 +23,8 @@ class IxButtonMulti extends React.Component {
           shape={shape}
           backgroundColor={backgroundColor}
           handleClick={this.onClick.bind(this)}
-        >
-          <Ellipses />
-        </IxButton>
+          dropdown={true}
+        />
         <div style={{ position: "absolute" }}>
           {this.state.open && children}
         </div>

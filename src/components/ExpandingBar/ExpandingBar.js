@@ -6,19 +6,28 @@ import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 class ExpandingBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { expanded: false, extracting: true };
   }
 
   toggleExpanded = () => {
     this.setState({ expanded: !this.state.expanded });
   };
 
+  hello = () => {
+    console.log("hello world");
+  };
+
+  componentDidMount() {
+    this.hello();
+    this.toggleExpanded();
+  }
+
   render() {
     const { children, startHeight, endHeight, backgroundColor } = this.props;
     return (
       <div>
         <AnimateHeight
-          duration={250}
+          duration={1000}
           height={this.state.expanded ? endHeight : startHeight}
         >
           <div
@@ -27,8 +36,9 @@ class ExpandingBar extends React.Component {
               height: this.state.expanded ? endHeight : startHeight
             }}
             onClick={this.toggleExpanded}
+            onLoad={this.hello}
           >
-            {children}
+            {this.state.expanded && children}
           </div>
         </AnimateHeight>
       </div>

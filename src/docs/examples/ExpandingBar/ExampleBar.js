@@ -1,22 +1,13 @@
 import React from "react";
 import ExpandingBar from "ps-react/ExpandingBar";
 import ForTesting from "ps-react/ForTesting";
+import IxButtonMainFlat from "ps-react/IxButtonMainFlat";
 
 export default function ExampleBar() {
   return (
     <>
-      <ExpandingBar duration={500} startHeight={90} endHeight={150}>
+      <ExpandingBar startHeight={50} endHeight={150}>
         <div style={{ height: "auto" }}>
-          <i
-            className={"fa fa-cubes fa-3x"}
-            style={{
-              margin: "auto auto",
-              float: "none",
-              color: "#0d47a1",
-              display: "inline-block",
-              height: "100%"
-            }}
-          />
           <div
             style={{
               display: "inline-block",
@@ -29,7 +20,8 @@ export default function ExampleBar() {
                 style={{
                   display: "inline-block",
                   marginBottom: "0px",
-                  color: "white"
+                  color: "white",
+                  paddingBottom: 0
                 }}
               >
                 PART NAME
@@ -40,7 +32,8 @@ export default function ExampleBar() {
                 style={{
                   display: "inline-block",
                   marginTop: "0px",
-                  color: "white"
+                  color: "white",
+                  marginBottom: 10
                 }}
               >
                 PART NUMBER
@@ -50,11 +43,41 @@ export default function ExampleBar() {
                   display: "inline-block",
                   marginLeft: "20px",
                   marginTop: "0px",
-                  color: "white"
+                  color: "white",
+                  marginBottom: 10
                 }}
               >
                 PART REVISION
               </h2>
+            </div>
+            <div>
+              <div style={{ display: "inline-block" }}>
+                <IxButtonMainFlat
+                  type="small"
+                  backgroundColor="green"
+                  label="NEXT"
+                />
+              </div>
+              <div
+                style={{
+                  display: "inline-block",
+                  marginLeft: 25
+                }}
+              >
+                <label
+                  class="container"
+                  style={{ fontColor: "white", marginRight: 25 }}
+                >
+                  Part
+                  <input type="radio" checked="checked" name="Part" />
+                  <span class="checkmark" />
+                </label>
+                <label class="container" style={{ fontColor: "white" }}>
+                  Assembly
+                  <input type="radio" name="Assembly" />
+                  <span class="checkmark" />
+                </label>
+              </div>
             </div>
           </div>
           <div />
