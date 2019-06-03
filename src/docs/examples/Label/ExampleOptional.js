@@ -1,5 +1,5 @@
 import React from "react";
-import Label from "ps-react/Label";
+import Label from "ixc/lib/Label";
 
 /** Optional Label */
 export default function ExampleOptional() {

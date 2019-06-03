@@ -1,11 +1,11 @@
 import React from "react";
-import ClickToEnterTextField from "ps-react/ClickToEnterTextField";
+import ClickToEnterTextField from "ixc/lib/ClickToEnterTextField";
 
 /** Optional TextBox */
 export default function ExampleTextField() {
   function onSubmit(event) {
-    this.setState({isEntered: false});
-    this.setState({isHover: false});
+    this.setState({ isEntered: false });
+    this.setState({ isHover: false });
     /** make any additonal calls or logic when submitting here, e.g. updating the DB */
     event.preventDefault();
   }
@@ -16,6 +16,10 @@ export default function ExampleTextField() {
   }
 
   return (
-    <ClickToEnterTextField name="partname" onChange={onChange} onSubmit={onSubmit} />
+    <ClickToEnterTextField
+      name="partname"
+      onChange={onChange}
+      onSubmit={onSubmit}
+    />
   );
 }

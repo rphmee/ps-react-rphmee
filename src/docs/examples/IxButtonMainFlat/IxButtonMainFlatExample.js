@@ -1,5 +1,5 @@
 import React from "react";
-import IxButtonMainFlat from "ps-react/IxButtonMainFlat";
+import IxButtonMainFlat from "ixc/lib/IxButtonMainFlat";
 
 export default function IxButtonMainFlatExample() {
   const helloExample = () => {

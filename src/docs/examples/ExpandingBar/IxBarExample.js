@@ -1,6 +1,6 @@
 import React from "react";
-import ExpandingBar from "ps-react/ExpandingBar";
-import ClickToEnterTextField from "ps-react/ClickToEnterTextField";
+import ExpandingBar from "ixc/lib/ExpandingBar";
+import ClickToEnterTextField from "ixc/lib/ClickToEnterTextField";
 
 export default function ExampleBar() {
   function onSubmit(event) {

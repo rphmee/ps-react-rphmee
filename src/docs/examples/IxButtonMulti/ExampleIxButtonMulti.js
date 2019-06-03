@@ -1,6 +1,6 @@
 import React from "react";
-import IxButton from "ps-react/IxButton";
-import IxButtonMulti from "ps-react/IxButtonMulti";
+import IxButton from "ixc/lib/IxButton";
+import IxButtonMulti from "ixc/lib/IxButtonMulti";
 
 export default function ExampleCirclesMulti() {
   return (

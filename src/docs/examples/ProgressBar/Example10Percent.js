@@ -1,5 +1,5 @@
 import React from "react";
-import ProgressBar from "ps-react/ProgressBar";
+import ProgressBar from "ixc/lib/ProgressBar";
 
 /** 10% Progress */
 export default function Example10Percent() {

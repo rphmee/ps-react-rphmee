@@ -1,5 +1,5 @@
 import React from "react";
-import IxButton from "ps-react/IxButton";
+import IxButton from "ixc/lib/IxButton";
 
 export default function ExampleButton() {
   const helloExample = () => {

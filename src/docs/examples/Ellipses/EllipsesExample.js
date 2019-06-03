@@ -1,5 +1,5 @@
 import React from "react";
-import Ellipses from "ps-react/Ellipses";
+import Ellipses from "ixc/lib/Ellipses";
 
 export default function EllipsesExample() {
   return (

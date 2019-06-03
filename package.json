@@ -1,6 +1,6 @@
 {
   "name": "ixc-components",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "main": "./lib/index.js",
   "engines": {
     "node": ">=4.0.0"
@@ -109,7 +109,7 @@
     "test": "node scripts/test.js",
     "prepublish": "npm run build:lib",
     "prebuild:lib": "rimraf lib",
-    "build:commonjs": "cross-env NODE_ENV=production babel ./src --out-dir ./lib --ignore ./src/docs --ignore spec.js --ignore ./src/index.js --ignore ./src/serviceWorker.js",
+    "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
     "build:css": "cpx \"./src/components/**/*.css\" ./lib",
     "build:lib": "npm run build:commonjs && npm run build:css",
     "predeploy:docs": "npm run build:docs",

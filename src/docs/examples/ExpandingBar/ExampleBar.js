@@ -1,7 +1,7 @@
 import React from "react";
-import ExpandingBar from "ps-react/ExpandingBar";
-import ForTesting from "ps-react/ForTesting";
-import IxButtonMainFlat from "ps-react/IxButtonMainFlat";
+import ExpandingBar from "ixc/lib/ExpandingBar";
+import ForTesting from "ixc/lib/ForTesting";
+import IxButtonMainFlat from "ixc/lib/IxButtonMainFlat";
 
 export default function ExampleBar() {
   return (
