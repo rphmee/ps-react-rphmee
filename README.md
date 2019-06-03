@@ -1,11 +1,11 @@
 # React Components
 
-A library of React Components. Single pound -> H1
+A library of React Components for IXC.
 
 ## Install
 
 ```
-npm install ps-react
+npm install ixc-components
 ```
 
 # Docs
