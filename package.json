@@ -1,19 +1,46 @@
 {
-  "name": "reusable-react-components",
+  "name": "ixc-components",
   "version": "0.1.0",
-  "private": true,
+  "main": "./lib/index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": {
+    "name": "Ryan Mee",
+    "email": "rphmee@gmail.com",
+    "url": "https://github.com/rphmee/ps-react-rphmee"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "components",
+    "react",
+    "react-component",
+    "toolkit",
+    "inspectionxpert"
+  ],
+  "private": false,
   "dependencies": {
-    "@babel/core": "7.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "font-awesome": "^4.7.0",
+    "react": "^16.8.6",
+    "react-animate-height": "^2.0.8",
+    "react-animations": "^1.0.0",
+    "react-app-polyfill": "^0.2.2",
+    "react-dev-utils": "^8.0.0",
+    "react-dom": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
+    "react-icons": "^3.6.1",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
     "@svgr/webpack": "4.1.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
-    "babel-loader": "8.0.5",
-    "babel-plugin-named-asset-import": "^0.3.1",
-    "babel-preset-react-app": "^7.0.2",
     "bfj": "6.1.1",
-    "case-sensitive-paths-webpack-plugin": "2.2.0",
     "core-js": "^3.0.1",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
@@ -26,9 +53,20 @@
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.12.4",
     "file-loader": "2.0.0",
-    "font-awesome": "^4.7.0",
     "fs-extra": "7.0.1",
     "highlight.js": "^9.10.0",
+    "babel-eslint": "9.0.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.1",
+    "babel-preset-react-app": "^7.0.2",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "chokidar": "^2.1.5",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
@@ -42,18 +80,15 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.5.0",
     "postcss-safe-parser": "4.0.1",
-    "react": "^16.8.6",
-    "react-animate-height": "^2.0.8",
-    "react-animations": "^1.0.0",
-    "react-app-polyfill": "^0.2.2",
-    "react-dev-utils": "^8.0.0",
-    "react-dom": "^16.8.6",
-    "react-fontawesome": "^1.6.1",
-    "react-icons": "^3.6.1",
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.7.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-docgen": "^4.1.0",
+    "react-test-renderer": "^16.8.6",
     "resolve": "1.10.0",
+    "rimraf": "^2.6.3",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
-    "styled-components": "^4.2.0",
     "terser-webpack-plugin": "1.2.2",
     "typescript": "^3.4.5",
     "url-loader": "1.1.2",
@@ -62,24 +97,22 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "devDependencies": {
-    "chokidar": "^2.1.5",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.13.0",
-    "npm-run-all": "^4.1.5",
-    "prop-types": "^15.7.2",
-    "react-addons-test-utils": "^15.6.2",
-    "react-docgen": "^4.1.0",
-    "react-test-renderer": "^16.8.6"
-  },
+  "homepage": "https://rphmee.github.io/ps-react-rphmee/",
   "scripts": {
     "prestart": "npm run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
     "start:docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build:docs": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "prepublish": "npm run build:lib",
+    "prebuild:lib": "rimraf lib",
+    "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
+    "build:css": "cpx \"./src/components/**/*.css\" ./lib",
+    "build:lib": "npm run build:commonjs && npm run build:css",
+    "predeploy:docs": "npm run build:docs",
+    "deploy:docs": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -137,7 +170,11 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   }
 }
