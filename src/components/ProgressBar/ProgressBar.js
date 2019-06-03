@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { border } from "../../styles/ProgressBar-Styles";
+import { border } from "../styles/ProgressBar-Styles";
 
 class ProgressBar extends React.Component {
   getColor = percent => {
