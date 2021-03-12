@@ -28,7 +28,7 @@
     "react-animate-height": "^2.0.8",
     "react-animations": "^1.0.0",
     "react-app-polyfill": "^0.2.2",
-    "react-dev-utils": "^8.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-icons": "^3.6.1",
